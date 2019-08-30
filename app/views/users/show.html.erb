@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row row-lg-eq-height">
+		<div class="col-lg-8">
+		  <div class="post_panel post_panel_top d-flex flex-row align-items-center justify-content-start">
+				<h2 class="post_name">ユーザー情報</h2>
+			</div>
+    		<% if logged_in? && current_user.id == @user.id %>
+    		  <table class="user_profile ">
+    		    <tr>
+    		      <th>User name(id):</th><td><%= @user.name %></td>
+    		    </tr>
+    		    <tr>
+    		      <th>Your E-mail:</th><td><%= @user.email %></td>
+    		    </tr>
+    		  </table>
+    		  <p class="edit_btn"><%= link_to '編集する', edit_user_path(id: @user.id) %></p>
+    	  <% end %>
+		</div>
+	</div>
+	
+	
+	<!--投稿遍歴一覧-->
+	<div class="category">
+  	<div class="section_content">
+  	  <h2 class="post_name">過去にシェアした動画一覧</h2>
+  		<div class="grid clearfix">
+  		<!-- topic index -->
+  			<% @topics.each do |topic| %>  
+    		 <div class="card card_small_with_image grid-item">
+    				<%= youtube_vi(topic.url) %>
+    			  <div class="card-body">
+    					p>URL:<%= raw Rinku.auto_link(h(topic.url)) %></p>
+  						<div class="card-title card-title-small"><%= topic.description.truncate(30) %></div>
+    				  <p><%= link_to "詳しくみる..", topic_path(topic.id) %></p>
+    					<small class="post_meta"><%= topic.user.name %>
+      					<span><%= topic.created_at.strftime('%Y/%m/%d') %></span>
+      					<span>
+          				<% if topic.favorite_users.include?(current_user) %>
+                    <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+                      <%= fa_icon 'heart', style: 'color: red;' %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                      <%= fa_icon 'heart-o', style: 'color: black;' %>
+                    <% end %>
+                  <% end %>
+                  <%= topic.favorite_users.count %>
+                </span>
+              </small>
+    				</div>
+    			</div>
+  			<% end %>
+  		</div>
+     </div>
+    </div>
+</div>

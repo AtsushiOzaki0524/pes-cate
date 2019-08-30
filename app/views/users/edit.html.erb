@@ -1,0 +1,29 @@
+<div class="topic-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-4 col-md-4 ">
+        <h1 class="text-center ">Edit User profile</h1>
+        <%= form_for @user do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+          <%= f.submit "編集する", class: 'btn btn-black btn-block' %>
+          <p class="user_delete"><%= link_to 'アカウントの消去', user_path(id: @user.id), method: :delete %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

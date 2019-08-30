@@ -13,6 +13,31 @@ class UsersController < ApplicationController
     end
   end
   
+  def show
+    @user = User.find_by(id: params[:id])
+    @topics = @user.topics
+    
+  end
+  
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+  def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user), success: '登録内容を変更しました'
+    else
+      flash.now[:danger] = "登録内容を変更できませんでした"
+      render :edit
+    end
+  end
+  
+  def destroy
+    user = User.find_by(id: params[:id])
+    user.destroy
+    redirect_to root_path, danger: 'アカウントを消去しました'
+  end
+  
   private
   def user_params
     params.require(:user).permit(:name, :email,:password, :password_confirmation)

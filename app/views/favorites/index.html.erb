@@ -1,22 +1,43 @@
-<div class="topic-index-wrapper">
-  <div class="container">
-    <% @favorite_topics.each do |topic| %>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="topic-index-single">
-            <h2 class="topic-author">
-              <%= topic.user.name %>
-            </h2>
-            <p class="topic-text" >
-              <%= raw Rinku.auto_link(h(topic.url)) %>
-            </p>
-            <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
-            <p class="topic-text">
-              <%= topic.description %>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+<div class="page_content">
+	<div class="container">
+  		<div class="row row-lg-eq-height">
+  		  <div class="main_content">
+  		    	<!-- Category -->
+  
+  					<div class="category">
+  					  <h2>お気に入り一覧:</h2>
+  					  <div class="section_content">
+  								<div class="grid clearfix">
+  								  <!-- topic index -->
+  								  <% @favorite_topics.each do |topic| %>
+    								  <div class="card card_small_with_image grid-item">
+    										<%= youtube_vi(topic.url) %>
+    										<div class="card-body">
+    										  <p>URL:<%= raw Rinku.auto_link(h(topic.url)) %></p>
+    											<div class="card-title card-title-small"><%= topic.description.truncate(30) %></div>
+    											 <p><%= link_to "詳しくみる..", topic_path(topic.id) %></p>
+    											<small class="post_meta"><%= topic.user.name %>
+    											  <span><%= topic.created_at.strftime('%Y/%m/%d') %></span>
+    											  <span>
+        											<% if topic.favorite_users.include?(current_user) %>
+                                <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+                                  <%= fa_icon 'heart', style: 'color: red;' %>
+                                <% end %>
+                              <% else %>
+                                <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                                  <%= fa_icon 'heart-o', style: 'color: black;' %>
+                                <% end %>
+                              <% end %>
+                              <%= topic.favorite_users.count %>
+                            </span>
+                          </small>
+    										</div>
+    									</div>
+  									<% end %>
+  								</div>
+  					  </div>
+  					</div>
+  		  </div>
+  		</div>
+	</div>
 </div>

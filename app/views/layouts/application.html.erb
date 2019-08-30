@@ -14,50 +14,68 @@
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
     
-    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
-      <div class="container">
-        <%= link_to topics_path do %>
-          <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
-        <% end %>
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
-            <li>
-              <%= link_to favorites_index_path do %>
-                <%= image_tag "icons/heart.png" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_topic_path do %>
-                <%= image_tag "icons/camera.png" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to logout_path, method: :delete do %>
-                <%= image_tag "icons/logout.png" %>
-              <% end %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to new_user_path do %>
-                <%= image_tag "icons/register.png" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to login_path do %>
-                <%= image_tag "icons/login.png" %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+    
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start ">
+						<div class="logo"><%= link_to 'PES-CATE', topics_path %></div>
+						<nav class="main_nav ml-auto">
+							<ul>
+							  <% if logged_in? %>
+  								<li><%= link_to 'お気に入り一覧', favorites_index_path %></li>
+  								<li><%= link_to '動画をシェア', new_topic_path %></li>
+  								<li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+  								<li><%= link_to user_path(id: current_user.id) do %>
+  									<%= fa_icon 'user-o' %>：<%= current_user.name %>
+  								<% end %></li>
+  							<% else %>
+  								<li><%= link_to 'ユーザー登録', new_user_path  %></li>
+  								<li><%= link_to 'ログイン', login_path %></li>
+  								
+								<% end %>
+							</ul>
+						</nav>
+					
+						<div class="hamburger ml-auto menu_mm">
+							<i class="fa fa-bars trans_200 menu_mm" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+  
+  <!-- Menu -->
 
+	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="logo menu_mm"><a href="#">PES-CATE</a></div>
+		
+		<nav class="menu_nav">
+			<ul class="menu_mm">
+			  <% if logged_in? %>
+				<li class="menu_mm"><%= link_to 'お気に入り一覧', favorites_index_path %></li>
+				<li class="menu_mm"><%= link_to '動画をシェア', new_topic_path %></li>
+				<li class="menu_mm"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+				<% else %>
+				<li class="menu_mm"><%= link_to 'ユーザー登録', new_user_path  %></li>
+				<li class="menu_mm"><%= link_to 'ログイン', login_path %></li>
+				<li class="menu_mm"><a href="#">Contact</a></li>
+				<% end %>
+			</ul>
+		</nav>
+	</div>
+	
     <%= yield %>
     
     <script>
       $(function(){
-      $(".alert").fadeOut(5000);
+        $(".alert").fadeOut(5000);
       });
+      
+      
     </script>
   </body>
 </html>

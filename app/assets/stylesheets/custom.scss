@@ -149,3 +149,492 @@ h1, h2 {
     }
   }
 }
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Work+Sans:300,400,500,600,700,800,900');
+
+/*********************************
+2. Body and some general stuff
+*********************************/
+
+*
+{
+	word-wrap: break-word;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+body
+{
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	background: #f7f7f7;
+	color: #a5a5a5;
+}
+div
+{
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul
+{
+	list-style: none;
+	margin-bottom: 0px;
+}
+p
+{
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	line-height: 1.45;
+	font-weight: 500;
+	color: rgba(0,0,0,0.5);
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p:last-of-type
+{
+	margin-bottom: 0;
+}
+p a
+{
+	display: inline;
+	position: relative;
+	color: inherit;
+	border-bottom: solid 1px #ffa07f;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+a, a:hover, a:visited, a:active, a:link
+{
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+p a:active
+{
+	position: relative;
+	color: #FF6347;
+}
+p a:hover
+{
+	color: #FFFFFF;
+	background: #ffa07f;
+}
+p a:hover::after
+{
+	opacity: 0.2;
+}
+::selection
+{
+	
+}
+p::selection
+{
+	
+}
+h1{font-size: 48px;}
+h2{font-size: 36px;}
+h3{font-size: 24px;}
+h4{font-size: 18px;}
+h5{font-size: 14px;}
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+h1::selection, 
+h2::selection, 
+h3::selection, 
+h4::selection, 
+h5::selection, 
+h6::selection
+{
+	
+}
+.form-control
+{
+	color: black;
+}
+section
+{
+	display: block;
+	position: relative;
+	box-sizing: border-box;
+}
+.clear
+{
+	clear: both;
+}
+.clearfix::before, .clearfix::after
+{
+	content: "";
+	display: table;
+}
+.clearfix::after
+{
+	clear: both;
+}
+.clearfix
+{
+	zoom: 1;
+}
+.float_left
+{
+	float: left;
+}
+.float_right
+{
+	float: right;
+}
+.trans_200
+{
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.trans_300
+{
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+.trans_400
+{
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+.trans_500
+{
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+.fill_height
+{
+	height: 100%;
+}
+.super_container
+{
+	width: 100%;
+	overflow: hidden;
+}
+.prlx_parent
+{
+	overflow: hidden;
+}
+.prlx
+{
+	height: 130% !important;
+}
+.parallax-window
+{
+    min-height: 400px;
+    background: transparent;
+}
+.nopadding
+{
+	padding: 0px !important;
+}
+
+/*********************************
+3. Header
+*********************************/
+
+.header
+{
+  background-color: black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+	background: rgba(0,0,0,0.75);
+	box-shadow: 0px 5px 5px rgba(0,0,0,0.1);
+	height: 80px;
+}
+.header_content
+{
+	height: 80px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+
+
+/*********************************
+3.1 Logo
+*********************************/
+
+.logo a
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 0.075em;
+}
+
+/*********************************
+3.2 Main Navigation
+*********************************/
+
+.main_nav
+{
+	margin-left: 46px;
+}
+.main_nav ul li
+{
+	display: inline-block;
+}
+.main_nav ul li:not(:last-child)
+{
+	margin-right: 29px;
+}
+.main_nav ul li a
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color: rgba(255,255,255,0.5);
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.main_nav ul li a:hover,
+.main_nav ul li.active a
+{
+	color: rgba(255,255,255,1);
+}
+/*********************************
+3.4 Hamburger
+*********************************/
+
+.hamburger
+{
+	display: none;
+	cursor: pointer;
+}
+.hamburger i
+{
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+.hamburger:hover i
+{
+	color: rgba(255,255,255,0.5);
+}
+
+/*********************************
+4. Menu
+*********************************/
+
+.menu
+{
+	position: fixed;
+	top: 0;
+	right: -400px;
+	width: 400px;
+	height: 100vh;
+	background: #FFFFFF;
+	z-index: 101;
+	padding-right: 60px;
+	padding-top: 87px;
+	padding-left: 50px;
+}
+.menu .logo a
+{
+	color: #000000;
+}
+.menu.active
+{
+	right: 0;
+}
+.menu_close_container
+{
+	position: absolute;
+	top: 30px;
+	right: 60px;
+	width: 18px;
+	height: 18px;
+	transform-origin: center center;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	cursor: pointer;
+}
+.menu_close
+{
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3D;
+}
+.menu_close div
+{
+	width: 100%;
+	height: 2px;
+	background: #232323;
+	top: 8px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.menu_close div:last-of-type
+{
+	-webkit-transform: rotate(90deg) translateX(-2px);
+	-moz-transform: rotate(90deg) translateX(-2px);
+	-ms-transform: rotate(90deg) translateX(-2px);
+	-o-transform: rotate(90deg) translateX(-2px);
+	transform: rotate(90deg) translateX(-2px);
+	transform-origin: center;
+}
+.menu_close:hover div
+{
+	background: #937c6f;
+}
+.menu .logo
+{
+	margin-bottom: 60px;
+}
+.menu_nav ul li
+{
+	margin-bottom: 11px;
+}
+.menu_nav ul li a
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: rgba(0,0,0,1);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.menu_nav ul li a:hover
+{
+	color: #937c6f;
+}
+
+@media only screen and (max-width: 991px)
+{
+	.similar_posts_container
+	{
+
+	}
+	.similar_post
+	{
+		display: none;
+	}
+	.home_slider_item_title a
+	{
+		font-size: 28px;
+	}
+	.home_slider_content
+	{
+		max-width: 360px;
+	}
+	.home_slider_next_container
+	{
+		left: auto;
+		right: 0;
+	}
+	.home_slider_nav_container
+	{
+		left: auto;
+		right: 305px;
+	}
+	.home_slider_next
+	{
+		width: 375px;
+	}
+	.home_slider_next_link
+	{
+		font-size: 20px;
+	}
+	.main_nav
+	{
+		display: none;
+	}
+	.search_container
+	{
+		display: none;
+	}
+	.hamburger
+	{
+		display: block;
+	}
+	.sidebar
+	{
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-bottom: 100px;
+	}
+	.sidebar_title_container
+	{
+		padding-bottom: 0px;
+	}
+	.sidebar_slider_nav
+	{
+		position: absolute;
+	    top: 5px;
+	    right: 0;
+	    left: auto;
+	}
+	.sidebar_background
+	{
+		width: 100%;
+	}
+	.side_post_image div
+	{
+		width: 70px;
+		height: 70px;
+	}
+	.subscribe
+	{
+		padding-bottom: 60px;
+	}
+	.subscribe_background
+	{
+		width: 100%;
+	}
+}

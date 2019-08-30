@@ -1,3 +1,24 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user_profile {
+  width: 100%;
+  
+}
+
+table, td, th {
+  border: 2px #808080 solid;
+  padding: 20px;
+}
+
+th {
+  font-size: 20px;
+  text-align: center;
+}
+td {
+  font-size: 16px;
+}
+.edit_btn {
+  text-align: right;
+}
+.user_delete {
+  margin-top: 30px;
+  text-align: right;
+}

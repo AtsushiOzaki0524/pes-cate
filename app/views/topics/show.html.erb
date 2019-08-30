@@ -1,0 +1,86 @@
+
+
+<div class="page_content">
+	<div class="container">
+		<div class="row row-lg-eq-height">
+		  <div class="col-lg-9">
+				<div class="post_content">
+				  
+				  <!-- Top Panel -->
+				  <div class="post_panel post_panel_top d-flex flex-row align-items-center justify-content-start">
+				    <h2 class="post_name"><%= @topic.user.name %></h2><span><%= @topic.created_at.strftime('%Y/%m/%d') %></span>
+				  </div>
+				  
+				  <div class="post_body">
+				    <div class="post_main">
+				      <%= youtube_embed(@topic.url) %>
+				      <p>URL:<%= raw Rinku.auto_link(h(@topic.url)) %></p>
+							<div class="icon-menus">
+  							<% if @topic.favorite_users.include?(current_user) %>
+                  <%= link_to favorites_path(topic_id: @topic.id), method: :delete do %>
+                    <%= fa_icon 'heart 3x', style: 'color: red;' %>
+                  <% end %>
+                <% else %>
+                  <%= link_to favorites_path(topic_id: @topic.id), method: :post do %>
+                    <%= fa_icon 'heart-o 3x', style: 'color: black;' %>
+                  <% end %>
+                <% end %>
+                <span class="icon"><%= @topic.favorite_users.count %></span>
+              
+                <%= link_to comments_path(topic_id: @topic.id) do %>
+                  <%= fa_icon 'commenting-o 3x', style: 'color: black;', class: 'icon' %>
+                <% end %>
+                        
+                <% if logged_in? && current_user.id == @topic.user_id %>
+                  <%= link_to topic_path(id: @topic.id), method: :delete do %>
+                    <%= fa_icon 'trash-o 3x', style: 'color: black;', class: 'icon' %>
+                  <% end %>
+                  
+                  <p style="display: inline-block;"><%= link_to '編集する', edit_topic_path(id: @topic.id) %></p>
+                  
+                <% end %>
+              </div>
+              <div class="post_p"><%= @topic.description %></div>
+						</div>
+					</div>
+		    </div>
+		    
+		    
+			  <!-- Comments -->
+				<div class="comments">
+  					<div class="comments_title">Comments <span>(<%= @comments.count %>)</span></div>
+  						<div class="row">
+  							<div class="col-xl-8">
+  							  <div class="comments_container">
+    							   
+    									<ul class="comment_list">
+    									  <% @comments.each do |comment| %>
+    										<li class="comment">
+    											<div class="comment_body">
+    												<div class="comment_panel d-flex flex-row align-items-center justify-content-start">
+    													<small class="comment_meta"><%= comment.user.name %> : <span><%= comment.created_at.strftime('%Y/%m/%d %-H時%-M分') %></span></small>
+    											  </div>
+    												<div class="comment_content">
+    													<p><%= comment.content %></p>
+    												</div>
+    												<div class="comment_edit">
+      												<% if logged_in? && current_user.id == comment.user_id %>
+                                <%= link_to comment_delete_path(comment_id: comment.id), method: :delete do %>
+                                  <%= fa_icon 'trash-o', style: 'color: black;', class: 'icon' %>
+                                <% end %>
+                                <p style="display: inline-block;"><%= link_to '編集する', edit_comments_path(id: comment.id) %></p>
+                              <% end %>
+                            </div>
+    											</div>
+    										</li>
+    										<% end %>
+    									</ul>
+    									
+  								</div>
+  						  </div>
+  						</div>	
+				  </div>
+	   </div>
+		</div>
+	</div>
+</div>
