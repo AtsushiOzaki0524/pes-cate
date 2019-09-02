@@ -59,6 +59,9 @@
 				<li class="menu_mm"><%= link_to 'お気に入り一覧', favorites_index_path %></li>
 				<li class="menu_mm"><%= link_to '動画をシェア', new_topic_path %></li>
 				<li class="menu_mm"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+				<li><%= link_to user_path(id: current_user.id) do %>
+  					<%= fa_icon 'user-o' %>：<%= current_user.name %>
+  			<% end %></li>
 				<% else %>
 				<li class="menu_mm"><%= link_to 'ユーザー登録', new_user_path  %></li>
 				<li class="menu_mm"><%= link_to 'ログイン', login_path %></li>

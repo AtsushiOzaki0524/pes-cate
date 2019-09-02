@@ -1,9 +1,10 @@
 class TopicsController < ApplicationController
-  before_action :authenticate_user, only:[:new]
+  before_action :authenticate_user, only:[:new, :edit, :destroy]
   
   
   def index
-      @topics = Topic.all.includes(:favorite_users, :comments)
+      #@topics = Topic.all.includes(:favorite_users, :comments)
+      @topics = Topic.page(params[:page]).per(5)
       
   end
   
