@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: pes-cate_production
-  username: pes-cate
-  password: <%= ENV['PES-CATE_DATABASE_PASSWORD'] %>
+<<: *default
+adapter: postgresql
+encoding: unicode
+pool: 5
