@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user
   
   def index
-    @favorite_topics = current_user.favorite_topics
+    @favorite_topics = current_user.favorite_topics.order(created_at: :desc)
   end
   
   def create

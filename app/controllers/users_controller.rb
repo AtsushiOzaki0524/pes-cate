@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find_by(id: params[:id])
-    @topics = @user.topics
+    @topics = @user.topics.order(created_at: :desc)
     
   end
   

@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   
   def index
       #@topics = Topic.all.includes(:favorite_users, :comments)
-      @topics = Topic.page(params[:page]).per(5)
+      @topics = Topic.page(params[:page]).per(6).order(created_at: :desc)
       
   end
   
