@@ -3,6 +3,11 @@
     <div class="row">
       <div class="offset-md-4 col-md-4 users-new-container">
         <h1 class="text-center text-white">Log in</h1>
+        <div class="test-info" >
+          <p>テスト用email: test1@test1.com<br/>
+              テスト用password：test1test1</p>
+        </div>
+        
         <%= form_for :session, url: login_path do |f| %>
           <div class="form-group">
             <%= f.label :email, class: "text-white" %>
