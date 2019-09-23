@@ -19,4 +19,6 @@
 * ページネーション機能 → kaminari
 * bootstrap4
 
+その他
+* GitHubのプルリクエスト
 
